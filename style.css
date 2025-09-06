@@ -1,0 +1,178 @@
+
+.stApp {
+    background-image: url("https://t4.ftcdn.net/jpg/05/78/45/21/360_F_578452196_2szXN92U1RtPLGUvuFB4QiNQlQWtlMKq.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+
+.main-header {
+    /* background-color: rgba(255, 255, 255, 0.95); */
+    padding: 1rem;
+    border-radius: 15px;
+    /* box-shadow: 0 4px 15px rgba(0,0,0,0.2); */
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+
+.title-container {
+    text-align: left; 
+    padding-left: 20px; 
+}
+
+.title-container h1 {
+    color: #000;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    word-wrap: break-word; 
+}
+
+
+.title-container h2 {
+    color: #301f01;
+    font-size: 2.4rem;
+    text-shadow: 2px 2px 4px rgba(2, 48, 17, 0.2);
+    margin: 0.5rem 0;
+}
+
+
+.explore-text {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+ 
+    .title-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .title-container h2 {
+        font-size: 1.8rem; 
+    }
+
+
+    .explore-text {
+        display: none;
+    }
+    
+    .title-container {
+        padding-left: 10px;
+    }
+}
+
+
+.title-container p {
+    color: #2d1c01;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.circular-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+.stTextInput > div > div {
+    background-color: rgb(32, 41, 35);
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    padding: 0.5rem;
+}
+
+.stButton > button {
+    background-color: #2E7D32;
+    color: white;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.stButton > button:hover {
+    background-color: #1B5E20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Modified Image Grid Styles */
+.image-grid {
+    margin-top: 50%;
+    display: grid;
+    grid-gap: 1.5rem;
+    padding: 2rem;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+    /* background-color: white; */
+    padding: 0.25rem;
+    margin: 10px;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+}
+
+.square-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.circular-image {
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+}
+
+
+.response-container {
+    background-color: rgb(211, 233, 214);
+    color:#000;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+/* Sidebar Styles */
+.sidebar .sidebar-content {
+    background-color: white;
+    padding: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #0a0000;
+    background-color: white;
+    margin-top: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
