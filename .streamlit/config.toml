@@ -1,2 +1,50 @@
-[python]
-version = "3.9"
+# .streamlit/config.toml
+# Production configuration for VedaBot with iframe embedding support
+
+[server]
+# Core server settings
+headless = true                    # Run without browser (production mode)
+port = 8501                       # Default port (override with STREAMLIT_SERVER_PORT env var)
+address = "0.0.0.0"               # Listen on all interfaces for containerization
+baseUrlPath = ""                  # Set if behind reverse proxy with path
+
+# Security settings (required for iframe embedding)
+enableCORS = false                # Allow cross-origin requests for iframe
+enableXsrfProtection = false      # Required for iframe embedding (security handled elsewhere)
+
+# Performance and stability
+runOnSave = false                 # CRITICAL: Disable auto-reload in production
+enableWebsocketCompression = true # Better performance
+
+# Upload limits
+maxUploadSize = 200              # Max upload size in MB
+maxMessageSize = 200             # Max WebSocket message size in MB
+
+# Additional production settings
+allowRunOnSave = false           # Extra safety against auto-reload
+cookieSecret = "your-secret-key-here"  # Set a strong secret for session cookies
+
+[theme]
+# VedaBot branding colors
+primaryColor = "rgb(28, 69, 50)"         # Main accent color (buttons, links)
+backgroundColor = "#AFD9B1"              # Main background color
+secondaryBackgroundColor = "#DFF5E2"     # Sidebar and secondary panels
+textColor = "rgb(28, 69, 50)"           # Main text color
+font = "sans serif"                      # Font family
+
+[browser]
+# Privacy and analytics
+gatherUsageStats = false         # Disable Streamlit telemetry
+
+[client]
+# Client-side settings
+toolbarMode = "minimal"          # Minimal toolbar for cleaner iframe appearance
+
+[logger]
+# Logging configuration
+level = "INFO"                   # Production logging level
+messageFormat = "%(asctime)s %(levelname)s: %(message)s"
+
+# Development override (commented out for production)
+# [global]
+# developmentMode = false
