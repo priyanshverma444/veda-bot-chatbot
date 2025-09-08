@@ -218,7 +218,7 @@ def main():
 
     # ------------------------- Main Header -------------------------
     st.markdown("""
-    <div class="main-header" style="align-items: center; text-align: center;">
+    <div class="main-header" style="align-items: center; text-align: center; margin-top: -45px; margin-bottom: 25px;">
         <div style="font-size:52px; font-weight:bold;">Welcome to VedaBot</div>
         <div style="font-size:32px; font-weight:bold;">Take your health into your hands</div>
     </div>
