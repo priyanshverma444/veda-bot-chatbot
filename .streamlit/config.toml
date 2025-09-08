@@ -22,6 +22,7 @@ maxMessageSize = 200             # Max WebSocket message size in MB
 
 # Additional production settings
 allowRunOnSave = false           # Extra safety against auto-reload
+cookieSecret = "your-secret-key-here"  # Set a strong secret for session cookies
 
 [theme]
 # VedaBot branding colors
@@ -31,6 +32,10 @@ secondaryBackgroundColor = "#DFF5E2"     # Sidebar and secondary panels
 textColor = "rgb(28, 69, 50)"           # Main text color
 font = "sans serif"                      # Font family
 
+[browser]
+# Privacy and analytics
+gatherUsageStats = false         # Disable Streamlit telemetry
+
 [client]
 # Client-side settings
 toolbarMode = "minimal"          # Minimal toolbar for cleaner iframe appearance
@@ -39,3 +44,7 @@ toolbarMode = "minimal"          # Minimal toolbar for cleaner iframe appearance
 # Logging configuration
 level = "INFO"                   # Production logging level
 messageFormat = "%(asctime)s %(levelname)s: %(message)s"
+
+# Development override (commented out for production)
+# [global]
+# developmentMode = false
