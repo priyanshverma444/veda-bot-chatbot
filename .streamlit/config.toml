@@ -5,7 +5,6 @@
 # Core server settings
 headless = true                    # Run without browser (production mode)
 port = 8501                       # Default port (override with STREAMLIT_SERVER_PORT env var)
-address = "0.0.0.0"               # Listen on all interfaces for containerization
 baseUrlPath = ""                  # Set if behind reverse proxy with path
 
 # Security settings (required for iframe embedding)
