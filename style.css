@@ -1,33 +1,22 @@
-
 .stApp {
-    background-image: url("https://t4.ftcdn.net/jpg/05/78/45/21/360_F_578452196_2szXN92U1RtPLGUvuFB4QiNQlQWtlMKq.jpg");
+    /* background-image: url('https://res.cloudinary.com/dokavb4tb/image/upload/v1757237650/veda-bot-bg_s1brrn.avif'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     z-index: 1;
     opacity: 0.9;
-}
-
-
-.main-header {
-    /* background-color: rgba(255, 255, 255, 0.95); */
-    padding: 1rem;
-    border-radius: 15px;
-    /* box-shadow: 0 4px 15px rgba(0,0,0,0.2); */
-    margin-bottom: 2rem;
+    background-color: #AFD9B1;
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
 }
 
 .logo-container {
     flex-shrink: 0;
 }
-
 
 .title-container {
     text-align: left; 
@@ -35,7 +24,7 @@
 }
 
 .title-container h1 {
-    color: #000;
+    color: #22543d;
     font-size: 3.5rem;
     font-weight: 900;
     margin: 0;
@@ -43,42 +32,26 @@
     word-wrap: break-word; 
 }
 
-
 .title-container h2 {
-    color: #301f01;
+    color: #22543d;
     font-size: 2.4rem;
     text-shadow: 2px 2px 4px rgba(2, 48, 17, 0.2);
     margin: 0.5rem 0;
 }
-
 
 .explore-text {
     display: block;
 }
 
 @media screen and (max-width: 768px) {
- 
-    .title-container h1 {
-        font-size: 2.5rem;
-    }
-
-    .title-container h2 {
-        font-size: 1.8rem; 
-    }
-
-
-    .explore-text {
-        display: none;
-    }
-    
-    .title-container {
-        padding-left: 10px;
-    }
+    .title-container h1 { font-size: 2.5rem; }
+    .title-container h2 { font-size: 1.8rem; }
+    .explore-text { display: none; }
+    .title-container { padding-left: 10px; }
 }
 
-
 .title-container p {
-    color: #2d1c01;
+    color: #22543d;
     font-size: 1.5rem;
     margin: 0;
 }
@@ -91,88 +64,123 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-
-.stTextInput > div > div {
-    background-color: rgb(32, 41, 35);
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    padding: 0.5rem;
-}
-
-.stButton > button {
-    background-color: #2E7D32;
-    color: white;
-    border-radius: 20px;
-    padding: 0.5rem 2rem;
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-
-.stButton > button:hover {
-    background-color: #1B5E20;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Modified Image Grid Styles */
-.image-grid {
-    margin-top: 50%;
-    display: grid;
-    grid-gap: 1.5rem;
-    padding: 2rem;
-}
-
-.image-container {
-    position: relative;
+/* Input + Submit button inside same box */
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 650px;
+    background: #22543d; /* input field color */
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-    /* background-color: white; */
-    padding: 0.25rem;
-    margin: 10px;
+    border: 2px solid #1b3a2b; /* slightly darker border */
 }
 
-.image-container:hover {
-    transform: scale(1.05);
+.input-container input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #22543d; /* match container */
+    color: white;
 }
 
-.square-image {
-    width: 100%;
-    height: 150px;
-    border-radius: 10px;
+.input-container input::placeholder {
+    color: #a3b18a;
 }
 
-.circular-image {
-    width: 100%;
-    height: 150px;
-    border-radius: 50%;
+.input-container button {
+    background: #2e7d32;  /* slightly lighter green than input */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.input-container button:hover {
+    background: #3fa34d;  /* lighter green on hover */
+    transform: translateY(-2px);
+}
 
+.input-container button:active {
+    background: #22543d;  /* match input field on click */
+}
+
+/* Response styling */
 .response-container {
-    background-color: rgb(211, 233, 214);
-    color:#000;
-    padding: 1.5rem;
-    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #F0FCED;  /* light green background */
+    color: rgb(28, 69, 50);       /* text color */
+    padding: 24px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.7;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin: 1rem 0;
 }
+
+.response-container h3 {
+    font-size: 24px;    
+    font-weight: 700;   
+    margin-bottom: 12px;
+    text-align: center; 
+    color: rgb(28, 69, 50);
+}
+
+.response-container h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: rgb(28, 69, 50);
+}
+
+.response-container p { margin-bottom: 12px; }
 
 /* Sidebar Styles */
 .sidebar .sidebar-content {
-    background-color: white;
+    background-color: #f0fced;  /* light green background */
+    color: rgb(28, 69, 50);             /* text color */
     padding: 1rem;
 }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #0a0000;
-    background-color: white;
-    margin-top: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+/* Center main content */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Submit button styling */
+.stFormSubmitButton > button {
+    background-color: #DFF5E2 !important;
+    border: 1px solid #DFF5E2 !important;
+    color: #22543D !important;
+}
+
+.stFormSubmitButton > button:hover {
+    background-color: #CFEBCF !important;
+    border: 1px solid #CFEBCF !important;
+    color: #22543D !important;
+}
+
+.stFormSubmitButton > button:focus {
+    background-color: #DFF5E2 !important;
+    border: 1px solid #DFF5E2 !important;
+    color: #22543D !important;
+    box-shadow: 0 0 0 0.2rem rgba(223, 245, 226, 0.5) !important;
+}
+
+.stFormSubmitButton > button:active {
+    background-color: #CFEBCF !important;
+    border: 1px solid #CFEBCF !important;
+    color: #22543D !important;
 }
