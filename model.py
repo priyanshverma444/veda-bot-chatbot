@@ -62,6 +62,11 @@ class HuggingFaceConversationalLLM(LLM):
             return str(message).strip()
         except Exception as exc:
             logging.error("Generation failed: %s", exc)
+            error_text = str(exc).lower()
+            if "401" in error_text or "unauthorized" in error_text or "forbidden" in error_text:
+                return "Authentication failed with Hugging Face. The access token may be expired or invalid."
+            if "429" in error_text or "rate limit" in error_text:
+                return "Hugging Face rate limit reached. Please retry after a short wait."
             return "Error generating response."
 
     @property
@@ -114,6 +119,17 @@ def handle_query(question):
         return {"result": result, "source_documents": docs}
     except Exception as exc:
         logging.error("Error processing query: %s", exc)
+        error_text = str(exc).lower()
+        if "huggingfacehub_access_token" in error_text:
+            return {
+                "result": "HUGGINGFACEHUB_ACCESS_TOKEN is missing in environment variables. "
+                "Set it in Hugging Face Space Settings > Variables and secrets."
+            }
+        if "401" in error_text or "unauthorized" in error_text or "forbidden" in error_text:
+            return {
+                "result": "Hugging Face authentication failed (token expired/invalid). "
+                "Update HUGGINGFACEHUB_ACCESS_TOKEN in Space Secrets and restart the Space."
+            }
         return {"result": "Oops! There was an issue processing your question. Please try again."}
 
 
