@@ -5,6 +5,10 @@ import shutil
 from datetime import datetime
 from dotenv import load_dotenv
 from model import handle_query
+<<<<<<< HEAD
+=======
+from urllib.parse import urlparse, parse_qs
+>>>>>>> hf/main
 
 # ------------------------- Helper Functions -------------------------
 
@@ -25,9 +29,13 @@ def convert_to_serializable(obj):
 
 def get_user_id_from_url():
     query_params = st.query_params
+<<<<<<< HEAD
     user_id = query_params.get("userId")
     if isinstance(user_id, list):
         return user_id[0] if user_id else None
+=======
+    user_id = query_params.get("userId", None)
+>>>>>>> hf/main
     return user_id
 
 def get_chat_history_file(user_id):
@@ -133,12 +141,19 @@ def main():
 
     load_css("style.css")
 
+<<<<<<< HEAD
     # Get user ID from iframe query params (required by design).
     user_id = get_user_id_from_url()
     if not user_id:
         st.error("Missing required query parameter: userId")
         st.caption("This app is intentionally coupled to an upstream web app/iframe.")
         st.code("?userId=<your-user-id>")
+=======
+    # Get user ID from iframe query params
+    user_id = get_user_id_from_url()
+    if not user_id:
+        st.error("User ID not found. Chat history cannot be loaded.")
+>>>>>>> hf/main
         st.stop()
         return
 
@@ -425,4 +440,8 @@ def main():
     """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> hf/main

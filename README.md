@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Vedabot - Your Personalized Ayurveda Advisor 🌿
 Deployed at:https://vedabot-ayurved.streamlit.app/
 
@@ -34,3 +35,15 @@ Streamlit run app.py
 
 
 <img width="1440" alt="Screenshot 2024-11-17 at 10 20 20 AM" src="https://github.com/user-attachments/assets/4fe8ee82-1288-4385-8f78-bf38933ac9a9">
+=======
+---
+title: VedaBot Chatbot
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.49.1
+app_file: app.py
+pinned: false
+---
+>>>>>>> hf/main

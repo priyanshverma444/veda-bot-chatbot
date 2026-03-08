@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python specific
 *.pyc
 *.pyo
@@ -38,3 +39,45 @@ Thumbs.db
 
 # Environment variables
 .env
+=======
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Virtual environment
+venv/
+.env/
+.venv/
+ENV/
+myenv/
+
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db
+
+# Pytest
+.cache/
+
+# Coverage reports
+.coverage
+*.cover
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+>>>>>>> hf/main
