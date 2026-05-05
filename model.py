@@ -30,7 +30,7 @@ You are an Ayurveda Advisor. Use the following information to answer the user's 
 - Only answer questions related to Ayurvedic remedies, herbs, diet, lifestyle, wellness routines, symptoms, and Ayurveda education.
 - If a question asks for anything outside Ayurvedic remedies or Ayurveda wellness guidance, refuse clearly and redirect the user to ask an Ayurveda-related health question.
 - Every answer must explicitly mention the user's body type.
-- Always end the answer with a short **Follow-up questions you can ask:** section containing 3 Ayurveda-relevant follow-up questions.
+- Always end the answer with a short **Follow-up questions you can ask:** section containing 3 standalone questions that are specific to the user's condition or symptom and their body type.
 - Include remedies, precautions, and exceptions where necessary.
 - Do **not** include any reference sections.
 - Always convert follow-up questions into standalone questions while keeping context.
@@ -79,14 +79,20 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "sleep",
     "digestion",
     "digestive",
+    "dizzy",
+    "dizziness",
     "disease",
     "illness",
     "appetite",
     "immunity",
     "stress",
     "anxiety",
+    "aankh",
+    "ankh",
+    "bukhar",
     "cold",
     "cough",
+    "dard",
     "fever",
     "headache",
     "pain",
@@ -98,14 +104,27 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "skin",
     "hair",
     "fatigue",
+    "nausea",
+    "nauseous",
+    "pet",
+    "vertigo",
+    "weakness",
     "energy",
+    "low",
     "inflammation",
     "joint",
     "muscle",
     "throat",
+    "gala",
     "sinus",
     "symptom",
     "symptoms",
+    "rash",
+    "itching",
+    "swelling",
+    "breathlessness",
+    "saans",
+    "sardi",
     "allergy",
     "period",
     "menstrual",
@@ -113,6 +132,7 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "diabetes",
     "blood pressure",
     "cholesterol",
+    "obesity",
     "weight",
     "detox",
     "triphala",
@@ -133,37 +153,81 @@ HEALTH_CONDITION_KEYWORDS = {
     "anemia",
     "arthritis",
     "asthma",
+    "autoimmune",
+    "bipolar",
     "bronchitis",
+    "cancer",
+    "cardiac",
     "chikungunya",
     "cholera",
     "ckd",
     "colitis",
     "copd",
     "covid",
+    "crohn",
+    "crohns",
     "dengue",
+    "depression",
+    "depressed",
+    "dermatitis",
+    "dysentery",
     "eczema",
+    "endometriosis",
+    "epilepsy",
+    "fibromyalgia",
     "fatty liver",
     "fissure",
+    "fistula",
+    "fibroid",
     "flu",
+    "gallstone",
+    "gallstones",
     "gastritis",
     "gerd",
+    "heart disease",
     "hepatitis",
+    "high bp",
+    "hypothyroid",
+    "hypothyroidism",
+    "hyperthyroid",
+    "hyperthyroidism",
     "hypertension",
     "ibs",
     "ibd",
     "infection",
     "influenza",
+    "infertility",
+    "insomnia",
     "jaundice",
     "kidney stone",
+    "kidney stones",
+    "kidney disease",
+    "lupus",
     "malaria",
+    "ms",
+    "menopause",
     "migraine",
+    "mood disorder",
+    "ocd",
+    "panic",
+    "parkinson",
+    "parkinsons",
+    "pcod",
     "piles",
     "pneumonia",
+    "ptsd",
     "psoriasis",
+    "rare disease",
+    "sarcoma",
+    "seizure",
+    "seizures",
+    "stroke",
+    "syndrome",
     "thyroid",
     "tuberculosis",
     "typhoid",
     "ulcer",
+    "unwell",
     "urti",
     "uti",
     "viral",
@@ -181,6 +245,7 @@ HEALTH_CONTEXT_KEYWORDS = {
     "chest",
     "ear",
     "eye",
+    "gallbladder",
     "gut",
     "heart",
     "kidney",
@@ -189,6 +254,8 @@ HEALTH_CONTEXT_KEYWORDS = {
     "lungs",
     "mental",
     "mouth",
+    "nerve",
+    "nerves",
     "nose",
     "respiratory",
     "stomach",
@@ -203,8 +270,14 @@ HEALTH_ACTION_KEYWORDS = {
     "cure",
     "diet",
     "do",
+    "diagnosed",
     "eat",
+    "facing",
+    "feel",
+    "feeling",
     "foods",
+    "have",
+    "having",
     "help",
     "manage",
     "management",
@@ -215,16 +288,152 @@ HEALTH_ACTION_KEYWORDS = {
     "relief",
     "safe",
     "support",
+    "struggling",
+    "suffering",
+    "suffer",
     "treat",
     "treatment",
 }
 
+CASUAL_HEALTH_PHRASES = {
+    "blood pressure",
+    "bp",
+    "khansi",
+    "feel low",
+    "feeling low",
+    "feeling sick",
+    "feeling unwell",
+    "not feeling good",
+    "not feeling well",
+    "low feel",
+    "gala dard",
+    "pet dard",
+    "saans problem",
+    "sick feel",
+    "unwell feel",
+    "sir dard",
+}
+
+COMMON_HEALTH_TYPOS = {
+    "acidityy": "acidity",
+    "anxity": "anxiety",
+    "anxeity": "anxiety",
+    "anxietyy": "anxiety",
+    "arthrits": "arthritis",
+    "arthiritis": "arthritis",
+    "asthama": "asthma",
+    "bukhaar": "bukhar",
+    "constipaton": "constipation",
+    "constipationn": "constipation",
+    "caugh": "cough",
+    "coughh": "cough",
+    "depresion": "depression",
+    "depresson": "depression",
+    "diabates": "diabetes",
+    "diabeties": "diabetes",
+    "diarea": "diarrhea",
+    "diarrhoea": "diarrhea",
+    "diahrea": "diarrhea",
+    "dizzyness": "dizziness",
+    "feaver": "fever",
+    "feveer": "fever",
+    "gastric": "gastritis",
+    "headach": "headache",
+    "headche": "headache",
+    "khasi": "khansi",
+    "migrane": "migraine",
+    "nausia": "nausea",
+    "nause": "nausea",
+    "pnemonia": "pneumonia",
+    "pnumonia": "pneumonia",
+    "pneumoniaa": "pneumonia",
+    "pnuemonia": "pneumonia",
+    "psorisis": "psoriasis",
+    "thypoid": "typhoid",
+    "typhiod": "typhoid",
+    "typhoid fever": "typhoid",
+    "vommiting": "vomiting",
+}
+
+QUESTION_FILLER_WORDS = {
+    "a",
+    "about",
+    "am",
+    "an",
+    "any",
+    "are",
+    "can",
+    "do",
+    "for",
+    "from",
+    "got",
+    "hai",
+    "have",
+    "help",
+    "how",
+    "i",
+    "is",
+    "me",
+    "my",
+    "of",
+    "please",
+    "raha",
+    "suffering",
+    "the",
+    "to",
+    "what",
+    "with",
+}
+
+CONCERN_DISPLAY_NAMES = {
+    "bp": "high blood pressure",
+    "ckd": "chronic kidney disease",
+    "copd": "COPD",
+    "crohn": "Crohn's disease",
+    "crohns": "Crohn's disease",
+    "covid": "COVID",
+    "gerd": "GERD",
+    "ibs": "IBS",
+    "ibd": "IBD",
+    "ocd": "OCD",
+    "pcod": "PCOD",
+    "pcos": "PCOS",
+    "ptsd": "PTSD",
+    "urti": "upper respiratory infection",
+    "uti": "UTI",
+    "bukhar": "fever",
+    "gala dard": "throat pain",
+    "khansi": "cough",
+    "pet dard": "stomach pain",
+    "saans": "breathing difficulty",
+    "saans problem": "breathing difficulty",
+    "sardi": "cold",
+    "sir dard": "headache",
+}
+
+GENERIC_CONCERN_KEYWORDS = {
+    "disease",
+    "illness",
+    "infection",
+    "rare disease",
+    "symptom",
+    "symptoms",
+    "syndrome",
+}
+
 HEALTH_CONDITION_PATTERNS = [
+    r"\b[a-z]+blastoma\b",
+    r"\b[a-z]+carcinoma\b",
     r"\b[a-z]+itis\b",
     r"\b[a-z]+osis\b",
     r"\b[a-z]+emia\b",
     r"\b[a-z]+algia\b",
     r"\b[a-z]+pathy\b",
+    r"\b[a-z]+plasia\b",
+    r"\b[a-z]+sclerosis\b",
+    r"\b(?:[a-z]+\s+){1,3}syndrome\b",
+    r"\b[a-z]+syndrome\b",
+    r"\b(?:[a-z]+\s+)?sarcoma\b",
 ]
 
 OFF_TOPIC_KEYWORDS = {
@@ -261,14 +470,80 @@ def contains_pattern(text, patterns):
     return any(re.search(pattern, text) for pattern in patterns)
 
 
+def normalize_question(question):
+    text = question.lower()
+    text = re.sub(r"\bi['’]?m\b", " i am ", text)
+    text = re.sub(r"\bm\b", " am ", text)
+    text = re.sub(r"\bi['’]?ve\b", " i have ", text)
+    text = re.sub(r"\bcant\b", " cannot ", text)
+    text = re.sub(r"\bcan't\b", " cannot ", text)
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    for typo, correction in COMMON_HEALTH_TYPOS.items():
+        text = re.sub(rf"\b{re.escape(typo)}\b", correction, text)
+    return f" {text} "
+
+
+def extract_query_concern(question):
+    normalized_question = normalize_question(question)
+    searchable_keywords = (
+        HEALTH_CONDITION_KEYWORDS
+        | AYURVEDA_SCOPE_KEYWORDS
+        | HEALTH_CONTEXT_KEYWORDS
+        | CASUAL_HEALTH_PHRASES
+    )
+    matches = [
+        keyword
+        for keyword in searchable_keywords
+        if re.search(rf"\b{re.escape(keyword)}\b", normalized_question)
+    ]
+    pattern_matches = [
+        match.group(0)
+        for pattern in HEALTH_CONDITION_PATTERNS
+        for match in re.finditer(pattern, normalized_question)
+    ]
+    if pattern_matches:
+        return max(pattern_matches, key=len).strip()
+
+    specific_matches = [keyword for keyword in matches if keyword not in GENERIC_CONCERN_KEYWORDS]
+    if specific_matches:
+        return max(specific_matches, key=len)
+
+    if matches:
+        return max(matches, key=len)
+
+    words = [
+        word
+        for word in normalized_question.strip().split()
+        if word not in QUESTION_FILLER_WORDS and len(word) > 2
+    ]
+    return "this concern" if not words else " ".join(words[:4])
+
+
+def format_concern_for_display(concern):
+    return CONCERN_DISPLAY_NAMES.get(concern, concern)
+
+
+def build_follow_up_questions(question, body_type=None):
+    concern = format_concern_for_display(extract_query_concern(question))
+    body_type_text = f" for my {body_type} body type" if body_type else " for my body type"
+    return (
+        "**Follow-up questions you can ask:**\n"
+        f"- What Ayurvedic diet and drinks are best{body_type_text} while dealing with {concern}?\n"
+        f"- Which daily routine changes can support recovery from {concern}{body_type_text}?\n"
+        f"- Which warning signs with {concern} mean I should consult a doctor urgently?"
+    )
+
+
 def is_ayurveda_scope_query(question):
-    normalized_question = f" {question.lower()} "
+    normalized_question = normalize_question(question)
     has_off_topic_keyword = contains_keyword(normalized_question, OFF_TOPIC_KEYWORDS)
     if has_off_topic_keyword:
         return False
 
     has_ayurveda_or_health_keyword = contains_keyword(normalized_question, AYURVEDA_SCOPE_KEYWORDS)
     has_condition_keyword = contains_keyword(normalized_question, HEALTH_CONDITION_KEYWORDS)
+    has_casual_health_phrase = contains_keyword(normalized_question, CASUAL_HEALTH_PHRASES)
     has_condition_pattern = contains_pattern(normalized_question, HEALTH_CONDITION_PATTERNS)
     has_health_context = contains_keyword(normalized_question, HEALTH_CONTEXT_KEYWORDS)
     has_health_action = contains_keyword(normalized_question, HEALTH_ACTION_KEYWORDS)
@@ -276,6 +551,7 @@ def is_ayurveda_scope_query(question):
     return (
         has_ayurveda_or_health_keyword
         or has_condition_keyword
+        or has_casual_health_phrase
         or has_condition_pattern
         or (has_health_context and has_health_action)
     )
@@ -287,16 +563,14 @@ def format_scoped_response(message, body_type):
     return message
 
 
-def ensure_follow_up_questions(result):
-    if "follow-up questions you can ask" in result.lower():
-        return result
-    return (
-        f"{result}\n\n"
-        "**Follow-up questions you can ask:**\n"
-        "- What Ayurvedic foods should I prefer for my body type?\n"
-        "- What daily routine can help balance my dosha?\n"
-        "- Which herbs are commonly used for this concern in Ayurveda?"
-    )
+def ensure_follow_up_questions(result, question, body_type=None):
+    answer_without_followups = re.split(
+        r"\n\s*\*\*follow-up questions you can ask:\*\*",
+        result,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0].rstrip()
+    return f"{answer_without_followups}\n\n{build_follow_up_questions(question, body_type)}"
 
 
 class HuggingFaceConversationalLLM(LLM):
@@ -386,7 +660,7 @@ def handle_query(question, body_type=None):
         context = "\n\n".join(doc.page_content for doc in docs)
         prompt = qa_prompt.format(context=context, body_type=body_type or "Not provided", question=question)
         result = llm.invoke(prompt)
-        result = ensure_follow_up_questions(result)
+        result = ensure_follow_up_questions(result, question, body_type)
         result = format_scoped_response(result, body_type)
         return {"result": result, "source_documents": docs, "body_type": body_type}
     except Exception as exc:
