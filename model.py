@@ -596,6 +596,12 @@ ALLERGY_EMERGENCY_KEYWORDS = {
 }
 
 BURN_EMERGENCY_KEYWORDS = {
+    "burn",
+    "burns",
+    "burnt",
+    "burned",
+    "scald",
+    "scalded",
     "severe burn",
     "major burn",
     "burned badly",
