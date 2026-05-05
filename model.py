@@ -493,6 +493,198 @@ OFF_TOPIC_KEYWORDS = {
     "recipe for bomb",
 }
 
+SELF_HARM_CRISIS_KEYWORDS = {
+    "suicidal",
+    "suicide",
+    "kill myself",
+    "end my life",
+    "want to die",
+    "dont want to live",
+    "do not want to live",
+    "life is not worth living",
+    "overdose myself",
+    "self harm",
+    "selfharm",
+    "harm myself",
+    "cut myself",
+}
+
+BLEEDING_EMERGENCY_KEYWORDS = {
+    "blood loss",
+    "bleeding heavily",
+    "bleeding",
+    "bleed",
+    "bled",
+    "slit",
+    "deep cut",
+    "heavy bleeding",
+    "lot of blood",
+    "lots of blood",
+    "cut wrist",
+    "cut my wrist",
+    "cut hand",
+    "hand bleeding",
+    "wrist bleeding",
+}
+
+CHEST_PAIN_EMERGENCY_KEYWORDS = {
+    "chest pain",
+    "chest tightness",
+    "heart attack",
+    "pain in chest",
+    "pressure in chest",
+    "left arm pain",
+    "jaw pain with chest",
+}
+
+STROKE_EMERGENCY_KEYWORDS = {
+    "stroke symptoms",
+    "face drooping",
+    "facial droop",
+    "one side weakness",
+    "slurred speech",
+    "sudden confusion",
+    "sudden numbness",
+    "sudden weakness",
+    "cannot speak",
+    "cant speak",
+}
+
+BREATHING_EMERGENCY_KEYWORDS = {
+    "cannot breathe",
+    "cant breathe",
+    "can't breathe",
+    "difficulty breathing",
+    "severe breathlessness",
+    "shortness of breath",
+    "struggling to breathe",
+    "choking",
+    "blue lips",
+}
+
+POISONING_OVERDOSE_EMERGENCY_KEYWORDS = {
+    "overdose",
+    "poison",
+    "poisoning",
+    "drank poison",
+    "ate poison",
+    "took too many pills",
+    "too many tablets",
+    "medicine overdose",
+    "drug overdose",
+}
+
+SEIZURE_UNCONSCIOUS_EMERGENCY_KEYWORDS = {
+    "unconscious",
+    "fainted and not waking",
+    "not waking up",
+    "seizure not stopping",
+    "continuous seizure",
+    "fits not stopping",
+    "convulsion",
+}
+
+ALLERGY_EMERGENCY_KEYWORDS = {
+    "anaphylaxis",
+    "severe allergy",
+    "allergic reaction",
+    "swollen tongue",
+    "tongue swelling",
+    "throat swelling",
+    "face swelling",
+    "hives with breathing",
+}
+
+BURN_EMERGENCY_KEYWORDS = {
+    "severe burn",
+    "major burn",
+    "burned badly",
+    "chemical burn",
+    "electric burn",
+    "electrical burn",
+}
+
+PREGNANCY_EMERGENCY_KEYWORDS = {
+    "pregnant bleeding",
+    "bleeding during pregnancy",
+    "pregnancy bleeding",
+    "severe pregnancy pain",
+    "pregnant severe pain",
+}
+
+SELF_HARM_CRISIS_RESPONSE = (
+    "I'm really sorry you're feeling this. This is urgent and you deserve immediate support.\n\n"
+    "- If you might hurt yourself, call your local emergency number now or go to the nearest emergency room.\n"
+    "- If you're in the U.S. or Canada, call or text **988** for immediate crisis support. If you're in India, call **112** for emergency help.\n"
+    "- Move away from anything you could use to harm yourself, and contact a trusted person to stay with you right now.\n\n"
+    "I can't help with self-harm instructions, but I can stay with you and help you take the next safe step: please tell me whether you are alone right now."
+)
+
+BLEEDING_EMERGENCY_RESPONSE = (
+    "This may need urgent medical care. Please do this now:\n\n"
+    "- Apply firm, continuous pressure on the bleeding area with a clean cloth or bandage.\n"
+    "- Raise the injured hand/arm above heart level if you can.\n"
+    "- Call your local emergency number or go to the nearest emergency room if bleeding is heavy, won't stop, the cut is deep, or you feel weak/dizzy.\n"
+    "- Do not rely on Ayurvedic or home remedies for active bleeding or blood loss."
+)
+
+CHEST_PAIN_EMERGENCY_RESPONSE = (
+    "Chest pain or pressure can be an emergency. Please call your local emergency number now or go to the nearest emergency room, especially if there is sweating, nausea, breathlessness, jaw/arm pain, faintness, or pressure in the chest.\n\n"
+    "Do not wait for Ayurvedic or home remedies for possible heart attack symptoms."
+)
+
+STROKE_EMERGENCY_RESPONSE = (
+    "This could be a stroke emergency. Call your local emergency number now.\n\n"
+    "- Watch for face drooping, arm weakness, speech trouble, sudden confusion, sudden numbness, or sudden severe headache.\n"
+    "- Note the time symptoms started.\n"
+    "- Do not wait for home or Ayurvedic remedies."
+)
+
+BREATHING_EMERGENCY_RESPONSE = (
+    "Breathing trouble can become dangerous quickly. Call your local emergency number now or go to the nearest emergency room if breathing is difficult, worsening, noisy, associated with blue lips, chest pain, choking, or severe weakness.\n\n"
+    "Sit upright if possible and avoid taking anything by mouth while struggling to breathe."
+)
+
+POISONING_OVERDOSE_EMERGENCY_RESPONSE = (
+    "Poisoning or overdose needs urgent help. Call your local emergency number or poison control now, or go to the nearest emergency room.\n\n"
+    "- Do not try to vomit unless a medical professional tells you to.\n"
+    "- Keep the medicine/chemical/container with you for doctors.\n"
+    "- Do not wait for Ayurvedic or home remedies."
+)
+
+SEIZURE_UNCONSCIOUS_EMERGENCY_RESPONSE = (
+    "This needs urgent medical attention. Call your local emergency number now if someone is unconscious, not waking up, has repeated seizures, or a seizure lasts more than a few minutes.\n\n"
+    "Keep the person on their side, move nearby hazards away, and do not put anything in their mouth."
+)
+
+ALLERGY_EMERGENCY_RESPONSE = (
+    "This could be a severe allergic reaction. Call your local emergency number now if there is throat/tongue/face swelling, breathing trouble, dizziness, or widespread hives.\n\n"
+    "Use an epinephrine auto-injector if one has been prescribed, and do not wait for Ayurvedic or home remedies."
+)
+
+BURN_EMERGENCY_RESPONSE = (
+    "A severe, chemical, electrical, face/genital, or large burn needs urgent medical care. Call your local emergency number or go to the nearest emergency room.\n\n"
+    "Cool the burn under clean running water if safe to do so. Do not apply herbs, ghee, oils, or powders to a serious burn."
+)
+
+PREGNANCY_EMERGENCY_RESPONSE = (
+    "Bleeding or severe pain during pregnancy needs urgent medical care. Please contact your obstetrician immediately, call your local emergency number, or go to the nearest emergency room.\n\n"
+    "Do not rely on Ayurvedic or home remedies for pregnancy bleeding or severe pregnancy pain."
+)
+
+URGENT_SAFETY_CATEGORIES = [
+    (SELF_HARM_CRISIS_KEYWORDS, SELF_HARM_CRISIS_RESPONSE),
+    (PREGNANCY_EMERGENCY_KEYWORDS, PREGNANCY_EMERGENCY_RESPONSE),
+    (BLEEDING_EMERGENCY_KEYWORDS, BLEEDING_EMERGENCY_RESPONSE),
+    (CHEST_PAIN_EMERGENCY_KEYWORDS, CHEST_PAIN_EMERGENCY_RESPONSE),
+    (STROKE_EMERGENCY_KEYWORDS, STROKE_EMERGENCY_RESPONSE),
+    (BREATHING_EMERGENCY_KEYWORDS, BREATHING_EMERGENCY_RESPONSE),
+    (POISONING_OVERDOSE_EMERGENCY_KEYWORDS, POISONING_OVERDOSE_EMERGENCY_RESPONSE),
+    (SEIZURE_UNCONSCIOUS_EMERGENCY_KEYWORDS, SEIZURE_UNCONSCIOUS_EMERGENCY_RESPONSE),
+    (ALLERGY_EMERGENCY_KEYWORDS, ALLERGY_EMERGENCY_RESPONSE),
+    (BURN_EMERGENCY_KEYWORDS, BURN_EMERGENCY_RESPONSE),
+]
+
 
 def contains_keyword(text, keywords):
     return any(re.search(rf"\b{re.escape(keyword)}\b", text) for keyword in keywords)
@@ -589,6 +781,14 @@ def is_ayurveda_scope_query(question):
     )
 
 
+def get_urgent_safety_response(question):
+    normalized_question = normalize_question(question)
+    for keywords, response in URGENT_SAFETY_CATEGORIES:
+        if contains_keyword(normalized_question, keywords):
+            return response
+    return None
+
+
 def format_scoped_response(message, body_type):
     if body_type:
         return f"For your {body_type} body type: {message}"
@@ -679,6 +879,10 @@ def create_chat_bot_chain():
 def handle_query(question, body_type=None):
     """Handle user queries."""
     try:
+        urgent_safety_response = get_urgent_safety_response(question)
+        if urgent_safety_response:
+            return {"result": urgent_safety_response, "body_type": body_type}
+
         if not body_type:
             return {
                 "result": "Please complete the Know Your Body Type assessment before chatting with VedaBot."
