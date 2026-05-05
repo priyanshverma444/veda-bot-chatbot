@@ -1,5 +1,6 @@
 ﻿import logging
 import os
+import re
 from typing import List, Optional
 
 from huggingface_hub import InferenceClient
@@ -78,6 +79,8 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "sleep",
     "digestion",
     "digestive",
+    "disease",
+    "illness",
     "appetite",
     "immunity",
     "stress",
@@ -101,6 +104,8 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "muscle",
     "throat",
     "sinus",
+    "symptom",
+    "symptoms",
     "allergy",
     "period",
     "menstrual",
@@ -122,6 +127,105 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "ghee",
     "abhyanga",
 }
+
+HEALTH_CONDITION_KEYWORDS = {
+    "acne",
+    "anemia",
+    "arthritis",
+    "asthma",
+    "bronchitis",
+    "chikungunya",
+    "cholera",
+    "ckd",
+    "colitis",
+    "copd",
+    "covid",
+    "dengue",
+    "eczema",
+    "fatty liver",
+    "fissure",
+    "flu",
+    "gastritis",
+    "gerd",
+    "hepatitis",
+    "hypertension",
+    "ibs",
+    "ibd",
+    "infection",
+    "influenza",
+    "jaundice",
+    "kidney stone",
+    "malaria",
+    "migraine",
+    "piles",
+    "pneumonia",
+    "psoriasis",
+    "thyroid",
+    "tuberculosis",
+    "typhoid",
+    "ulcer",
+    "urti",
+    "uti",
+    "viral",
+    "vomiting",
+}
+
+HEALTH_CONTEXT_KEYWORDS = {
+    "abdomen",
+    "back",
+    "bladder",
+    "blood",
+    "body",
+    "bowel",
+    "breathing",
+    "chest",
+    "ear",
+    "eye",
+    "gut",
+    "heart",
+    "kidney",
+    "liver",
+    "lung",
+    "lungs",
+    "mental",
+    "mouth",
+    "nose",
+    "respiratory",
+    "stomach",
+    "sugar",
+    "urinary",
+    "urine",
+}
+
+HEALTH_ACTION_KEYWORDS = {
+    "avoid",
+    "care",
+    "cure",
+    "diet",
+    "do",
+    "eat",
+    "foods",
+    "help",
+    "manage",
+    "management",
+    "prevent",
+    "prevention",
+    "recover",
+    "recovery",
+    "relief",
+    "safe",
+    "support",
+    "treat",
+    "treatment",
+}
+
+HEALTH_CONDITION_PATTERNS = [
+    r"\b[a-z]+itis\b",
+    r"\b[a-z]+osis\b",
+    r"\b[a-z]+emia\b",
+    r"\b[a-z]+algia\b",
+    r"\b[a-z]+pathy\b",
+]
 
 OFF_TOPIC_KEYWORDS = {
     "code",
@@ -149,11 +253,32 @@ OFF_TOPIC_KEYWORDS = {
 }
 
 
+def contains_keyword(text, keywords):
+    return any(re.search(rf"\b{re.escape(keyword)}\b", text) for keyword in keywords)
+
+
+def contains_pattern(text, patterns):
+    return any(re.search(pattern, text) for pattern in patterns)
+
+
 def is_ayurveda_scope_query(question):
     normalized_question = f" {question.lower()} "
-    has_scope_keyword = any(keyword in normalized_question for keyword in AYURVEDA_SCOPE_KEYWORDS)
-    has_off_topic_keyword = any(keyword in normalized_question for keyword in OFF_TOPIC_KEYWORDS)
-    return has_scope_keyword and not has_off_topic_keyword
+    has_off_topic_keyword = contains_keyword(normalized_question, OFF_TOPIC_KEYWORDS)
+    if has_off_topic_keyword:
+        return False
+
+    has_ayurveda_or_health_keyword = contains_keyword(normalized_question, AYURVEDA_SCOPE_KEYWORDS)
+    has_condition_keyword = contains_keyword(normalized_question, HEALTH_CONDITION_KEYWORDS)
+    has_condition_pattern = contains_pattern(normalized_question, HEALTH_CONDITION_PATTERNS)
+    has_health_context = contains_keyword(normalized_question, HEALTH_CONTEXT_KEYWORDS)
+    has_health_action = contains_keyword(normalized_question, HEALTH_ACTION_KEYWORDS)
+
+    return (
+        has_ayurveda_or_health_keyword
+        or has_condition_keyword
+        or has_condition_pattern
+        or (has_health_context and has_health_action)
+    )
 
 
 def format_scoped_response(message, body_type):
