@@ -103,6 +103,7 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "diarrhea",
     "skin",
     "hair",
+    "fat",
     "fatigue",
     "nausea",
     "nauseous",
@@ -123,6 +124,15 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "itching",
     "swelling",
     "breathlessness",
+    "color",
+    "colour",
+    "dark",
+    "discolor",
+    "discolored",
+    "discoloration",
+    "discolour",
+    "discoloured",
+    "discolouration",
     "saans",
     "sardi",
     "allergy",
@@ -133,6 +143,8 @@ AYURVEDA_SCOPE_KEYWORDS = {
     "blood pressure",
     "cholesterol",
     "obesity",
+    "obese",
+    "overweight",
     "weight",
     "detox",
     "triphala",
@@ -232,6 +244,8 @@ HEALTH_CONDITION_KEYWORDS = {
     "uti",
     "viral",
     "vomiting",
+    "vomit",
+    "vomits",
 }
 
 HEALTH_CONTEXT_KEYWORDS = {
@@ -306,10 +320,19 @@ CASUAL_HEALTH_PHRASES = {
     "not feeling good",
     "not feeling well",
     "low feel",
+    "dark urine",
+    "discolored urine",
+    "discoloured urine",
     "gala dard",
     "pet dard",
     "saans problem",
     "sick feel",
+    "urine color",
+    "urine colour",
+    "urine discolor",
+    "urine discoloration",
+    "urine discolour",
+    "urine discolouration",
     "unwell feel",
     "sir dard",
 }
@@ -353,6 +376,7 @@ COMMON_HEALTH_TYPOS = {
     "typhiod": "typhoid",
     "typhoid fever": "typhoid",
     "vommiting": "vomiting",
+    "vomitting": "vomiting",
 }
 
 QUESTION_FILLER_WORDS = {
@@ -409,6 +433,14 @@ CONCERN_DISPLAY_NAMES = {
     "saans problem": "breathing difficulty",
     "sardi": "cold",
     "sir dard": "headache",
+    "dark urine": "dark urine",
+    "discolored urine": "urine discoloration",
+    "discoloured urine": "urine discoloration",
+    "urine discolour": "urine discoloration",
+    "urine discolouration": "urine discoloration",
+    "urine discolor": "urine discoloration",
+    "urine discoloration": "urine discoloration",
+    "vomit": "vomiting",
 }
 
 GENERIC_CONCERN_KEYWORDS = {
