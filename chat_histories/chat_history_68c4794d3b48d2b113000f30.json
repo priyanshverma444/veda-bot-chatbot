@@ -1,0 +1,38 @@
+[
+  {
+    "chat_id": "20260505_235851_504742",
+    "time": "2026-05-05 23:58:51",
+    "question": "total stars in sky",
+    "response": {
+      "result": "For your Vata body type: I can only help with Ayurvedic remedies, herbs, diet, lifestyle routines, wellness guidance, and Ayurveda-related health questions. Please ask a question within that Ayurveda wellness scope.\n\n**Follow-up questions you can ask:**\n- What are Ayurvedic remedies for better digestion?\n- Which foods are suitable for my dosha?\n- What daily routine can support my Ayurvedic balance?",
+      "body_type": "Vata"
+    }
+  },
+  {
+    "chat_id": "20260505_235926_480000",
+    "time": "2026-05-05 23:59:26",
+    "question": "sore throat",
+    "response": {
+      "result": "For your Vata body type: **Sore Throat Remedies for Vata Body Type**\n\nAs a Vata individual, you tend to be prone to dryness and coldness in your body. When it comes to a sore throat, it's essential to focus on warming and soothing remedies to alleviate the discomfort.\n\n* **Gargling with Bayberry and Sage**: Gargling with a mixture of 1/2 tsp of bayberry powder and 1/2 tsp of sage in hot water can help soothe your sore throat. However, as a Vata, you may want to reduce the amount of sage, as it can be drying for your body type. Start with a smaller amount (1/4 tsp) and adjust as needed.\n* **Warm Ginger and Turmeric Paste**: Applying a warm paste made from 1 tsp of ginger and 1/2 tsp of turmeric to the affected area twice a day can help reduce inflammation and soothe the throat. Make sure to use a gentle, warm application, as Vata skin can be sensitive.\n* **Stay Hydrated**: Drink plenty of warm liquids, such as herbal teas or warm water with a pinch of salt, to help keep your throat moist and soothe the discomfort.\n\n**Precautions for Vata Body Type**\n\n* Avoid using harsh or drying ingredients, such as excessive sage or eucalyptus oil, which can exacerbate Vata's natural dryness.\n* Be gentle when applying warm compresses or pastes to the throat area, as Vata skin can be sensitive.\n\n**Follow-up questions you can ask:**\n\n1. What are some additional herbal teas that can help soothe a sore throat for a Vata body type?\n2. How can I modify the gargling mixture to make it more suitable for my Vata body type?\n3. Are there any specific yoga poses or breathing exercises that can help alleviate a sore throat for a Vata individual?",
+      "source_documents": [
+        {
+          "page_content": "Sore Throat: Gargle with hotwater mixed with 1/2tsp.\nbayberry powder and 1/2 tsp. sage.\nSprain: Massage with equal parts ofalmond andgarlic oil.In\nahotwater bath, add1/2cupofginger powder and1/2cupof\nbaking soda. Tothisadd1tsp.ofeucalyptus oil.Sitfor15\nminutes.\nApply warm ginger paste with turmeric (1tsp.ofginger with\n1/2tsp. of turmeric) to the affected area twice a day.\nSwelling: Drink barley water: 4parts ofwater boiled with 1\npartofbarley, then strain. Coriander teaalsoisbeneficial. For",
+          "metadata": {
+            "source": "data\\The Yoga of Herbs-An Ayurvedic guide to herbal medicine (Dr. David Frawley , Dr. Vasant Lad).pdf",
+            "page": 335
+          },
+          "type": "Document"
+        },
+        {
+          "page_content": "congestion, sore throat, asthma, bronchitis, adenoids, fever,\nbleeding gums, chronic sores, epilepsy\n167",
+          "metadata": {
+            "source": "data\\The Yoga of Herbs-An Ayurvedic guide to herbal medicine (Dr. David Frawley , Dr. Vasant Lad).pdf",
+            "page": 166
+          },
+          "type": "Document"
+        }
+      ],
+      "body_type": "Vata"
+    }
+  }
+]
